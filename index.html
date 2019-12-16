@@ -15,7 +15,7 @@ layout: default
     <p>
         Below this is a collection of projects that I've completed or am still working on.
         JavaScript projects are hosted right on gitHub, so they should run on modern browsers by just following the links.
-        Other projects will have varying levels of set up, which is discussed in their README's.
+        Other projects will have varying levels of set up, which is discussed in their summaries.
     </p>
     
     <h2>aTAM Simulator</h2>
@@ -96,21 +96,32 @@ layout: default
     <h2 style='clear:both;'>Sujiru Solver</h2>
     <p>
         <img src='sujiru.png' width='200' hspace='20' style='float:right;'>
-        This is a small project that demonstrates several programming techniques
-        related to Artificial Intelligence. More Specifically, it models the game of Sujiru as a
-        <a href="https://en.wikipedia.org/wiki/Constraint_satisfaction_problem">
-        Constraint Satisfaction Problem</a> and is solved with backtracking.
-    </p>
-    <p>
-        The game of Sujiru is made up. In a fashion similer to Sudoku, a square grid is
+        Sujiru is a made up game. In a fashion similar to Sudoku, a square grid is
         initialized with 0's and 1's scattered throughout its cells; all other cells
         are blank (represented by a '-' symbol).  The goal is to fill in all remaining cells
         with 0's or 1's such that there are never three 0's or three 1's in sequence (vertically or horizontally)
-        and that each row and collum has an equal number of 0's and 1's.
+        and such that each row and column has an equal number of 0's and 1's.
     </p>
     <p>
+        This is a small project that demonstrates several programming techniques
+        related to Artificial Intelligence. More Specifically, it models the game of Sujiru as a
+        <a href="https://en.wikipedia.org/wiki/Constraint_satisfaction_problem">
+        Constraint Satisfaction Problem</a> and then solves it with backtracking.
+        My written code is contained in "sujiru.py", while the rest comes from an AI library.
+    </p>
+    <p>
+        You can create or modify an existing Sujiru board by editing the text in
+        the files "p1.txt", "p2.txt", or "p3.txt". Run the program by executing "sujiru.py".
     </p>
     <br>
     <a href='sujiru.zip'>Sujiru Solver</a>
+    <br>
+    <h4>Setup:</h4>
+    <ol>
+        <li>Have python 3 installed on your computer. <a href='https://realpython.com/installing-python/'>How to install python 3.</a></li>
+        <li>Download the file by clicking the "Sujiru Solver" link.</li>
+        <li>Unzip the file. <a href='https://www.wikihow.com/Unzip-a-File'>How to unzip a file.</a></li>
+        <li>Run "sujiru.py". <a href='https://realpython.com/run-python-scripts/'>How to run python scripts.</a></li>
+    </ol>
 </body>
 </html>
