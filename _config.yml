@@ -1,4 +1,4 @@
 theme: jekyll-theme-hacker
 title: Christian Wendlandt
 description: Software Developer and Numberphile
-show_downloads: false
+show_downloads: "false"
