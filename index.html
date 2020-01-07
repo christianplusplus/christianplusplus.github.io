@@ -96,21 +96,24 @@ layout: default
     <form action="https://formspree.io/xknodben" method="POST">
         <label>Name:</label>
         <br>
-        <input type="text" name="name">
+        <input type="text" name="name" required>
         <br>
-        <label>Email:</label>
+        <label>Email*:</label>
         <br>
-        <input type="text" name="_replyto">
+        <input type="text" name="_replyto" required>
         <br>
         <label>Association:</label>
         <br>
         <input type="text" name="association">
         <br>
-        <label>Message:</label>
+        <label>Message*:</label>
         <br>
-        <textarea name="message" cols="80" style="height:120px;"></textarea>
+        <textarea name="message" cols="80" style="height:120px;" required />
+        <br>
+        <label>* required field</label>
         <br>
         <input type="submit"/>
+        
     </form>
     
     
