@@ -30,3 +30,5 @@ input[type=submit] {
 input[type=submit]:hover {
   background-color: #45a049;
 }
+
+label { font-weight: normal; font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace; color: #d64a4a; letter-spacing: -0.03em; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(214, 74, 74, 0.1), 0 0 10px rgba(214, 74, 74, 0.1); }
