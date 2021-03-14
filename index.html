@@ -3,7 +3,20 @@ layout: default
 ---
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jq-console/2.7.7/jqconsole.min.js"></script>
+    <!-- shim for ES6 `Promise` builtin -->
+    <script src="pypyjs-nojit-0.4.0/lib/Promise.min.js" type="text/javascript"></script>
+    <!-- shim for off-main-thread function compilation -->
+    <script src="pypyjs-nojit-0.4.0/lib/FunctionPromise.js" type="text/javascript"></script>
+    <script src="pypyjs-nojit-0.4.0/lib/pypyjs.js" type="text/javascript"></script>
+    <script src="run.js" type="text/javascript"></script>
+</head>
 <body>
+
+    <div id='terminal'></div>
 
     <h1 style='text-align:center;'>About Me</h1>
 
