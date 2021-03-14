@@ -1,23 +1,28 @@
 pypyjs.ready().then(function() {
-    // Initialize the widget.
-    var terminal = $('#terminal').jqconsole('', '>>> ');
+    $(document).ready(function() {
 
-    // Hook up output streams to write to the console.
-    pypyjs.stdout = pypyjs.stderr = function(data) {
-      terminal.Write(data, 'jqconsole-output');
-    }
+        var jqconsole = $('#console').jqconsole('Hi\n', '>>>');
+        
+        // Initialize the widget.
+        var terminal = $('#terminal').jqconsole('', '>>> ');
 
-    // Interact by taking input from the console prompt.
-    pypyjs.repl(function(ps1) {
+        // Hook up output streams to write to the console.
+        pypyjs.stdout = pypyjs.stderr = function(data) {
+          terminal.Write(data, 'jqconsole-output');
+        }
 
-      // The argument is ">>> " or "... " depending on REPL state.
-      jqconsole.SetPromptLabel(ps1);
+        // Interact by taking input from the console prompt.
+        pypyjs.repl(function(ps1) {
 
-      // Return a promise if prompting for input asynchronously.
-      return new Promise(function(resolve, reject) {
-        jqconsole.Prompt(true, function (input) {
-          resolve(input);
+          // The argument is ">>> " or "... " depending on REPL state.
+          jqconsole.SetPromptLabel(ps1);
+
+          // Return a promise if prompting for input asynchronously.
+          return new Promise(function(resolve, reject) {
+            jqconsole.Prompt(true, function (input) {
+              resolve(input);
+            });
+          });
         });
-      });
-    });
+    })
 })
