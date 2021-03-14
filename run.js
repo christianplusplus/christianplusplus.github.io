@@ -20,4 +20,4 @@ pypyjs.ready().then(function() {
         });
       });
     });
-})
+});

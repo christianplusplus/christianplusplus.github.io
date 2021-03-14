@@ -1,8 +1,7 @@
 /* The console container element */
 #terminal {
-  position: absolute;
-  width: 400px;
-  height: 500px;
+  width: 800px;
+  height: 400px;
   background-color: black;
 }
 
