@@ -1,4 +1,8 @@
 pypyjs.ready().then(function() {
+    pypyjs.execfile("connectfour/utils.py");
+    pypyjs.execfile("connectfour/games.py");
+    pypyjs.execfile("connectfour/ConnectFour.py");
+    
     // Initialize the widget.
     var terminal = $('#terminal').jqconsole('', '>>> ');
 
