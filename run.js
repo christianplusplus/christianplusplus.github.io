@@ -1,7 +1,6 @@
 pypyjs.ready().then(function() {
     pypyjs.execfile("connectfour/utils.py");
     pypyjs.execfile("connectfour/games.py");
-    pypyjs.execfile("connectfour/ConnectFour.py");
     
     // Initialize the widget.
     var terminal = $('#terminal').jqconsole('', '>>> ');
@@ -10,6 +9,8 @@ pypyjs.ready().then(function() {
     pypyjs.stdout = pypyjs.stderr = function(data) {
       terminal.Write(data, 'jqconsole-output');
     }
+    
+    pypyjs.execfile("connectfour/ConnectFour.py");
 
     // Interact by taking input from the console prompt.
     pypyjs.repl(function(ps1) {
