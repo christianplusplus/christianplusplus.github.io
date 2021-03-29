@@ -6,8 +6,8 @@ pypyjs.ready().then(function() {
     var terminal = $('#terminal').jqconsole('', '>>> ');
 
     // Hook up output streams to write to the console.
-    pypyjs.stdout = pypyjs.stderr = function(data) {
-      terminal.Write(data, 'jqconsole-output');
+    pypyjs.stdout = pypyjs.stderr = function(text) {
+      terminal.Write(text, 'jqconsole-output');
     }
     
     pypyjs.execfile("connectfour/ConnectFour.py");

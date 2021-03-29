@@ -4,43 +4,47 @@ layout: default
 <!DOCTYPE html>
 <html>
 <head>
-<script src="imports/jquery.min.js" type="text/javascript"></script> 
-<script src="imports/skulpt.min.js" type="text/javascript"></script> 
-<script src="imports/skulpt-stdlib.js" type="text/javascript"></script>
-<script type="text/javascript"> 
-// output functions are configurable.  This one just appends some text
-// to a pre element.
-function output(text) { 
-    var mypre = document.getElementById("output"); 
-    mypre.innerHTML = mypre.innerHTML + text; 
-} 
-function read(x) {
-    if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
-            throw "File not found: '" + x + "'";
-    return Sk.builtinFiles["files"][x];
-}
-
-function runit() { 
-   var prog = document.getElementById("input").value; 
-   var mypre = document.getElementById("output"); 
-   Sk.configure({output:output, read:read}); 
-   var myPromise = Sk.misceval.asyncToPromise(function() {
-       return Sk.importMainWithBody("<stdin>", false, prog);
-   });
-   myPromise.then(function(mod) {
-       console.log('success');
-   },
-       function(err) {
-       console.log(err.toString());
-   });
-} 
-</script> 
+    <link rel="stylesheet" href="style.css">
+    <script src="imports/jquery.min.js" type="text/javascript"></script>
+    <script src="imports/jqconsole.min.js" type="text/javascript"></script> 
+    <script src="imports/skulpt.min.js" type="text/javascript"></script>
+    <script src="imports/skulpt-stdlib.js" type="text/javascript"></script>
 </head>
 <body>
+    <div id='terminal'></div> 
+    <script type="text/javascript"> 
+        var terminal = $('#terminal').jqconsole('', '>>>');
 
-    <textarea id="input" cols="40" rows="10">print "Hello World"</textarea>
-    <button type="button" onclick="runit()">Run</button>
-    <pre id="output" ></pre> 
+        var output = function(text) {
+            terminal.Write(text, 'jqconsole-output');
+        }
+
+        var input = function(){
+            return new Promise(function(resolve, reject) {
+                terminal.Input(
+                    function(text){
+                        resolve(text);
+                    }
+                );
+            });
+        }
+
+        var prog = 'while True:\n    message = input()\n    print(message)'
+        Sk.configure({output:output, inputfun:input, inputfunTakesPrompt:true}); 
+        
+        var myPromise = Sk.misceval.asyncToPromise(function() {
+            return Sk.importMainWithBody("<stdin>", false, prog, true);
+        });
+        myPromise.then(
+            function(process) {
+                console.log('success');
+            },
+            function(err) {
+                console.log(err.toString());
+            }
+        );
+        
+        </script> 
 
     <h1 style='text-align:center;'>About Me</h1>
 
@@ -50,7 +54,6 @@ function runit() {
         I enjoy sharing my passions and tutored for both majors throughout my schooling.
         My favorite projects usually include graphics, computer architecture, or assembly language.
         Contact me if you are looking for an astute, deep-learning, and dedicated, problem-solver.
-        
     </p>
     <img src='images/java.png' title='Java'>
     <img src='images/python.png' title='Python'>
@@ -148,6 +151,8 @@ function runit() {
     </ol>
     
     <br><br><br>
+    
+    <hr>
     
     <h1 style='text-align:center;'>Contact Me</h1>
     
