@@ -11,17 +11,18 @@ layout: default
     <script src="imports/skulpt-stdlib.js" type="text/javascript"></script>
 </head>
 <body>
-    <div id='terminal'></div> 
+    <div id='console'></div> 
     <script type="text/javascript"> 
-        var terminal = $('#terminal').jqconsole('', '>>>');
+        var jqconsole = $('#console').jqconsole('', '');
 
         var output = function(text) {
-            terminal.Write(text, 'jqconsole-output');
+            jqconsole.Write(text, 'jqconsole-output');
         }
 
         var input = function(){
             return new Promise(function(resolve, reject) {
-                terminal.Input(
+                jqconsole.Prompt(
+                    true,
                     function(text){
                         resolve(text);
                     }
@@ -29,8 +30,8 @@ layout: default
             });
         }
 
-        var prog = 'while True:\n    message = input()\n    print(message)'
-        Sk.configure({output:output, inputfun:input, inputfunTakesPrompt:true}); 
+        var prog = 'while True:\n    message = input("Enter your name.\\n")\n    print("Your name is: " + message)'
+        Sk.configure({output:output, inputfun:input}); 
         
         var myPromise = Sk.misceval.asyncToPromise(function() {
             return Sk.importMainWithBody("<stdin>", false, prog, true);
