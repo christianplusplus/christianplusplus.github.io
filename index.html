@@ -55,7 +55,7 @@ layout: default
         var prog = getProg();
         
         var myPromise = Sk.misceval.asyncToPromise(function() {
-            return Sk.importMainWithBody('c4blob', false, prog, true);
+            return Sk.importMainWithBody("<stdin>", false, prog, true);
         });
         
         myPromise.then(
