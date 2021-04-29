@@ -15,6 +15,7 @@ layout: default
     <div id='console'></div> 
     <script type="text/javascript">
         async function run() {
+            await loadPyodide({ indexURL : 'https://cdn.jsdelivr.net/pyodide/dev/full/' });
             var utils = await (await fetch('ConnectFour/utils.py')).text();
             var games = await (await fetch('ConnectFour/games.py')).text();
             var connectFour = await (await fetch('ConnectFour/ConnectFour.py')).text();
