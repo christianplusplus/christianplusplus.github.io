@@ -9,26 +9,10 @@ layout: default
     <script src="imports/jqconsole.min.js" type="text/javascript"></script> 
     <script src="imports/skulpt.min.js" type="text/javascript"></script>
     <script src="imports/skulpt-stdlib.js" type="text/javascript"></script>
-    <script src="https://cdn.jsdelivr.net/pyodide/dev/full/pyodide.js"></script>
 </head>
 <body>
     <div id='console'></div> 
     <script type="text/javascript">
-    /*
-        async function run() {
-            await loadPyodide({ indexURL : 'https://cdn.jsdelivr.net/pyodide/dev/full/' });
-            var c4blob = await (await fetch('ConnectFour/c4blob.py')).text();
-            pyodide.runPython(c4blob);
-        }
-        run();
-        
-        async function run() {
-            console.log(pyodide.runPython(await fetch('ConnectFour/utils.py')));
-        };
-    */
-    
-    
-    
         var jqconsole = $('#console').jqconsole('', '');
 
         var output = function(text) {
@@ -66,7 +50,6 @@ layout: default
                 console.log(err.toString());
             }
         );
-
     </script> 
 
     <h1 style='text-align:center;'>About Me</h1>
