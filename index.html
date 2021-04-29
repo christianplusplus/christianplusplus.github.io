@@ -9,10 +9,21 @@ layout: default
     <script src="imports/jqconsole.min.js" type="text/javascript"></script> 
     <script src="imports/skulpt.min.js" type="text/javascript"></script>
     <script src="imports/skulpt-stdlib.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/dev/full/pyodide.js"></script>
 </head>
 <body>
     <div id='console'></div> 
-    <script type="text/javascript"> 
+    <script type="text/javascript">
+        var text = fetch('ConnectFour/utils.py');
+        /*
+        async function run() {
+            console.log(pyodide.runPython(await fetch('ConnectFour/utils.py')));
+        };
+        */
+        console.log(text);
+    
+    
+    /*
         var jqconsole = $('#console').jqconsole('', '');
 
         var output = function(text) {
@@ -33,8 +44,13 @@ layout: default
         var prog = 'while True:\n    message = input("Enter your name.\\n")\n    print("Your name is: " + message)'
         Sk.configure({output:output, inputfun:input}); 
         
+        Sk.doOneTimeInitialization();
+            Sk.importModule('utils.py', true, true);
+            Sk.importModule('games.py', true, true);
+            Sk.importMain('ConnectFour.py', true, true);
+        
         var myPromise = Sk.misceval.asyncToPromise(function() {
-            return Sk.importMainWithBody("<stdin>", false, prog, true);
+            
         });
         myPromise.then(
             function(process) {
@@ -44,8 +60,8 @@ layout: default
                 console.log(err.toString());
             }
         );
-        
-        </script> 
+        */
+    </script> 
 
     <h1 style='text-align:center;'>About Me</h1>
 
