@@ -15,16 +15,20 @@ layout: default
     <div id='console'></div> 
     <script type="text/javascript">
         async function run() {
-            var text = await (await fetch('ConnectFour/utils.py')).text();
-            console.log(text);
+            var utils = await (await fetch('ConnectFour/utils.py')).text();
+            var games = await (await fetch('ConnectFour/games.py')).text();
+            var connectFour = await (await fetch('ConnectFour/ConnectFour.py')).text();
+            pyodide.runPython(utils);
+            pyodide.runPython(games);
+            pyodide.runPython(connectFour);
         }
-        
+        run();
         /*
         async function run() {
             console.log(pyodide.runPython(await fetch('ConnectFour/utils.py')));
         };
         */
-        run();
+        
     
     
     /*
