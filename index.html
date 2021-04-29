@@ -15,8 +15,8 @@ layout: default
     <div id='console'></div> 
     <script type="text/javascript">
         async function run() {
-            var response = await fetch('ConnectFour/utils.py');
-            console.log(response.text());
+            var text = (await fetch('ConnectFour/utils.py')).text();
+            console.log(text);
         }
         
         /*
