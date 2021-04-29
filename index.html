@@ -45,15 +45,17 @@ layout: default
                 );
             });
         }
+        
+        Sk.configure({output:output, inputfun:input}); 
 
         async function getProg() {
             return await (await fetch('ConnectFour/c4blob.py')).text();
         }
         
-        Sk.configure({output:output, inputfun:input}); 
+        var prog = getProg();
         
         var myPromise = Sk.misceval.asyncToPromise(function() {
-            return Sk.importMainWithBody('c4blob', false, getProg(), true);
+            return Sk.importMainWithBody('c4blob', false, prog, true);
         });
         
         myPromise.then(
