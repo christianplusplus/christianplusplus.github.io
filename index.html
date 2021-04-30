@@ -33,11 +33,11 @@ layout: default
         Sk.configure({output:output, inputfun:input}); 
 
         var fr = new FileReaderSync();
-        var program = fr.readAsText('ConnectFour/c4blob.py');
+        var program = fr.readAsText(new File('ConnectFour/c4blob.py'));
         console.log(program);
         
         var myPromise = Sk.misceval.asyncToPromise(() =>
-            Sk.importMainWithBody("<stdin>", false, program, true);
+            Sk.importMainWithBody("<stdin>", false, program, true)
         );
         
         myPromise.then(
