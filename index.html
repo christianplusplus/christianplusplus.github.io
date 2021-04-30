@@ -32,11 +32,10 @@ layout: default
         
         Sk.configure({output:output, inputfun:input}); 
 
-        async function getProg() {
-            return await (await fetch('ConnectFour/c4blob.py')).text();
-        }
-        
-        var prog = getProg();
+        var prog;
+        fetch('file.txt')
+            .then(response => response.text())
+            .then(text => prog = text)
         
         console.log(prog);
         
