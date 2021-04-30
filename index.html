@@ -38,6 +38,8 @@ layout: default
         
         var prog = getProg();
         
+        console.log(prog);
+        
         var myPromise = Sk.misceval.asyncToPromise(function() {
             return Sk.importMainWithBody("<stdin>", false, prog, true);
         });
