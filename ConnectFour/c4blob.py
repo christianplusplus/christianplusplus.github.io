@@ -3,7 +3,7 @@
 Provides some widely useful utilities -Based on AIMA code
 We will incrementally build this through the course...
 """
-import operator, math, random, copy, sys, os.path, bisect, re
+import operator, math, random, copy, sys, bisect, re
 from functools import reduce
 
 #______________________________________________________________________________
