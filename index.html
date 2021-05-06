@@ -30,7 +30,8 @@ layout: default
             });
         }
         
-        Sk.configure({output:output, inputfun:input}); 
+        Sk.configure({output:output, inputfun:input});
+        Sk.python3 = true;
 
         fetch('ConnectFour/c4blob.py').then(response => {
             response.text().then(text => {
