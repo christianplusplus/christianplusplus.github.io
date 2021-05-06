@@ -30,8 +30,7 @@ layout: default
             });
         }
         
-        Sk.configure({output:output, inputfun:input});
-        Sk.python3 = true;
+        Sk.configure({output:output, inputfun:input, python3:true});
 
         fetch('ConnectFour/c4blob.py').then(response => {
             response.text().then(text => {
@@ -39,7 +38,14 @@ layout: default
                 
                 Sk.misceval.asyncToPromise(() =>
                     Sk.importMainWithBody('c4blob', false, text, true)
-                ).then(value => console.log(value))
+                ).then(
+                    function(process) {
+                        console.log('success');
+                    },
+                    function(err) {
+                        console.log(err.toString());
+                    }
+                );
             });
         });
         
