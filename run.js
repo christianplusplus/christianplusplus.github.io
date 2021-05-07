@@ -23,7 +23,7 @@ function runBot(){
             Sk.misceval.asyncToPromise(suspension =>
                 Sk.importMainWithBody('c4blob', false, text, true)
             ).then(
-                () => void
+                process => 0
             );
         });
     });
