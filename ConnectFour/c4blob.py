@@ -8,7 +8,7 @@ import operator, math, random, copy, sys, bisect, re
 #______________________________________________________________________________
 # Simple Data Structures
 
-def reduce(function, sequence, initial = 0)
+def reduce(function, sequence, initial = 0):
     acc = initial
     for element in sequence:
         acc = function(acc, element)
