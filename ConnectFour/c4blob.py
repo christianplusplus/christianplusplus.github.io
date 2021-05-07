@@ -808,7 +808,7 @@ def tournament(numberOfMatches, depth):
     
 
 def main():
-    depth = 4
+    depth = 3
     if 1 == play_game(ConnectFour(), connect_four_query_player, intelligent_player, d=depth):
         print("Congradulations! You won!")
     else:
@@ -816,8 +816,6 @@ def main():
     #tournament(10,depth)
     
 main()
-print("Hit [ENTER] to terminate the program.")
-input()
 
 """
 print(play_game(TicTacToe(), tic_tac_query_player,random_player))
