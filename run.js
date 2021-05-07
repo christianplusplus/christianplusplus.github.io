@@ -20,10 +20,10 @@ function runBot(){
 
     fetch('ConnectFour/c4blob.py').then(response => {
         response.text().then(text => {
-            Sk.misceval.asyncToPromise(susp =>
+            Sk.misceval.asyncToPromise(() =>
                 Sk.importMainWithBody('c4blob', false, text, true)
             ).then(
-                res => new Promisesusp.resolve(susp.resume())
+                () => 0
             );
         });
     });
