@@ -1,14 +1,14 @@
 function runBot(){
     var jqconsole = $('#console').jqconsole('', '');
 
-    var output = async function(text) {
-        await jqconsole.Write(text, 'jqconsole-output');
+    var output = function(text) {
+        jqconsole.Write(text, 'jqconsole-output');
     }
 
     var input = function(){
         return new Promise(function(resolve, reject) {
             jqconsole.Prompt(
-                true,
+                false,
                 function(text){
                     resolve(text);
                 }
@@ -20,11 +20,8 @@ function runBot(){
 
     fetch('ConnectFour/c4blob.py').then(response => {
         response.text().then(text => {
-            Sk.misceval.asyncToPromise(() =>
-                Sk.importMainWithBody('c4blob', false, text, true)
-            ).then(
-                () => 0
-            );
+            Sk.importMainWithBody('c4blob', false, text, true)
+            
         });
     });
 }
