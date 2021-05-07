@@ -4,10 +4,15 @@ Provides some widely useful utilities -Based on AIMA code
 We will incrementally build this through the course...
 """
 import operator, math, random, copy, sys, bisect, re
-from functools import reduce
 
 #______________________________________________________________________________
 # Simple Data Structures
+
+def reduce(function, sequence, initial = 0)
+    acc = initial
+    for element in sequence:
+        acc = function(acc, element)
+    return acc
 
 infinity = 1.0e400
 
