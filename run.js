@@ -1,28 +1,37 @@
-pypyjs.ready().then(function() {
-    pypyjs.execfile("connectfour/utils.py");
-    pypyjs.execfile("connectfour/games.py");
-    
-    // Initialize the widget.
-    var terminal = $('#terminal').jqconsole('', '>>> ');
+function runBot(){
+    var jqconsole = $('#console').jqconsole('', '');
 
-    // Hook up output streams to write to the console.
-    pypyjs.stdout = pypyjs.stderr = function(text) {
-      terminal.Write(text, 'jqconsole-output');
+    var output = function(text) {
+        jqconsole.Write(text, 'jqconsole-output');
     }
-    
-    pypyjs.execfile("connectfour/ConnectFour.py");
 
-    // Interact by taking input from the console prompt.
-    pypyjs.repl(function(ps1) {
-
-      // The argument is ">>> " or "... " depending on REPL state.
-      terminal.SetPromptLabel(ps1);
-
-      // Return a promise if prompting for input asynchronously.
-      return new Promise(function(resolve, reject) {
-        terminal.Prompt(true, function (input) {
-          resolve(input);
+    var input = function(){
+        return new Promise(function(resolve, reject) {
+            jqconsole.Prompt(
+                true,
+                function(text){
+                    resolve(text);
+                }
+            );
         });
-      });
+    }
+
+    Sk.configure({output:output, inputfun:input, __future__:Sk.python3});
+
+    fetch('ConnectFour/c4blob.py').then(response => {
+        response.text().then(text => {
+            console.log(text);
+            
+            Sk.misceval.asyncToPromise(() =>
+                Sk.importMainWithBody('c4blob', false, text, true)
+            ).then(
+                function(process) {
+                    console.log('success');
+                },
+                function(err) {
+                    console.log(err.toString());
+                }
+            );
+        });
     });
-});
+}

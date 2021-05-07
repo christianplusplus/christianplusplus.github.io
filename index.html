@@ -9,48 +9,9 @@ layout: default
     <script src="imports/jqconsole.min.js" type="text/javascript"></script> 
     <script src="imports/skulpt.min.js" type="text/javascript"></script>
     <script src="imports/skulpt-stdlib.js" type="text/javascript"></script>
+    <script src="run.js" type="text/javascript"></script>
 </head>
 <body>
-    <div id='console'></div> 
-    <script type="text/javascript">
-        var jqconsole = $('#console').jqconsole('', '');
-
-        var output = function(text) {
-            jqconsole.Write(text, 'jqconsole-output');
-        }
-
-        var input = function(){
-            return new Promise(function(resolve, reject) {
-                jqconsole.Prompt(
-                    true,
-                    function(text){
-                        resolve(text);
-                    }
-                );
-            });
-        }
-        
-        Sk.configure({output:output, inputfun:input, __future__:Sk.python3});
-
-        fetch('ConnectFour/c4blob.py').then(response => {
-            response.text().then(text => {
-                console.log(text);
-                
-                Sk.misceval.asyncToPromise(() =>
-                    Sk.importMainWithBody('c4blob', false, text, true)
-                ).then(
-                    function(process) {
-                        console.log('success');
-                    },
-                    function(err) {
-                        console.log(err.toString());
-                    }
-                );
-            });
-        });
-        
-    </script> 
-
     <h1 style='text-align:center;'>About Me</h1>
 
     <p>
@@ -91,6 +52,22 @@ layout: default
     </p>
     <a href='https://christianplusplus.github.io/aTAM-Simulator/app/aTAM.html'>View Live</a>
     <a href='https://github.com/christianplusplus/aTAM-Simulator'>View Code</a>
+    <br>
+    <label>(recommended resolution of at least 1125x400)</label>
+    <br>
+    
+    <h2>Connect Four Bot</h2>
+    <p>
+        Written in Python, Connect Four Bot is an AI opponent capable of playing Connect Four.
+        It utilizes Alpha-Beta pruning with a custom state analysis algorithm to determine optimal lines of play.
+    </p>
+    <p>
+        <div id='console'></div><button onclick="runBot()">Click me</button>This Python window is implemented with Skulpt, a Python-to-JavaScript compiler. Click the button to start the game.
+        Connect Four Bot may take a minute to reply, but performs much faster when running in native Python, which can be freely downloaded.
+    </p>
+    
+    
+    <a href='https://github.com/christianplusplus/christianplusplus.github.io/tree/master/ConnectFour'>View Code</a>
     <br>
     <label>(recommended resolution of at least 1125x400)</label>
     <br>
@@ -144,10 +121,10 @@ layout: default
     <a href='https://docs.google.com/presentation/d/11i0fOqtOQ5cL-SWUSzh1Hbfk07jKu7-VDe2HMOuu3yY/edit?usp=sharing' target='_blank'>Presentation Slides</a>
     <br>
     <a href='https://arxiv.org/pdf/1808.04358.pdf' target='_blank'>Research Paper</a>
-    <p style='float:right;text-align:left;'>
+    <p style='text-align:left;'>
         If you want to see the algorithm in practice, you can do so with my aTAM Simulator.
     </p>
-    <ol style='float:right;text-align:left;'>
+    <ol style='text-align:left;'>
         <li>Follow the <a href='https://christianplusplus.github.io/aTAM-Simulator/app/aTAM.html'>View Live</a> link.</li>
         <li>Click the "Temperature" icon and set to 1.</li>
         <li>Click the "Load Demo" icon and enter "thin 100 10".</li>
