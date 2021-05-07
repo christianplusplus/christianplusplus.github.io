@@ -23,7 +23,7 @@ function runBot(){
             console.log(text);
             
             Sk.misceval.asyncToPromise(() =>
-                Sk.importMainWithBody('c4blob', false, text, true)
+                Sk.importMainWithBody('c4blob', false, text, false)
             ).then(
                 function(process) {
                     console.log('success');
