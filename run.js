@@ -20,8 +20,8 @@ function runBot(){
 
     fetch('ConnectFour/c4blob.py').then(response => {
         response.text().then(text =>
-            Sk.misceval.callAsync(() =>
-                Sk.importMainWithBody('c4blob', false, text, true)
+            Sk.misceval.callAsync(null,
+                () => Sk.importMainWithBody('c4blob', false, text, true)
             )
         );
     });
