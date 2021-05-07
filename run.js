@@ -2,10 +2,10 @@ function runBot(){
     var jqconsole = $('#console').jqconsole('', '');
 
     var output = async function(text) {
-        jqconsole.Write(text, 'jqconsole-output');
+        await jqconsole.Write(text, 'jqconsole-output');
     }
 
-    var input = async function(){
+    var input = function(){
         return new Promise(function(resolve, reject) {
             jqconsole.Prompt(
                 true,
