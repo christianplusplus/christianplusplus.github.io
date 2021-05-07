@@ -1,8 +1,8 @@
 /* The console container element */
 #console {
   height: 400px;
-  width: 750px;
-  position:relative;
+  width: 300px;
+  float: left;
   background-color: black;
 }
 
