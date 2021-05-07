@@ -20,7 +20,7 @@ function runBot(){
 
     fetch('ConnectFour/c4blob.py').then(response => {
         response.text().then(text =>
-            Sk.misceval.callsimAsync(null,
+            Sk.misceval.callsimAsync('skulpt',
                 () => Sk.importMainWithBody('c4blob', false, text, true)
             )
         );
