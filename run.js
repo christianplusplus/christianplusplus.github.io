@@ -16,7 +16,7 @@ function runBot(){
         });
     }
 
-    Sk.configure({output:output, inputfun:input, __future__:Sk.python3});
+    Sk.configure({output:output, inputfun:input, inputfunTakesPrompt:true, __future__:Sk.python3});
 
     fetch('ConnectFour/c4blob.py').then(response => {
         response.text().then(text => {
