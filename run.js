@@ -7,7 +7,8 @@ function runConsole(){
 
     var input = function(){
         return new Promise(function(resolve, reject) {
-            jqconsole.Input(
+            jqconsole.Prompt(
+                false,
                 function(text){
                     resolve(text);
                 }
