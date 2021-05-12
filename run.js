@@ -7,8 +7,7 @@ function runBot(){
 
     var input = function(){
         return new Promise(function(resolve, reject) {
-            jqconsole.Prompt(
-                false,
+            jqconsole.Input(
                 function(text){
                     resolve(text);
                 }
