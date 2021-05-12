@@ -1,13 +1,16 @@
 self.importScripts('imports/skulpt.min.js')
 self.importScripts('imports/skulpt-stdlib.js')
 
+const EventEmitter = require('events');
+const eventEmitter = new EventEmitter();
+
 var output = function(text) {
-    jqconsole.Write(text, 'jqconsole-output');
+    postMessage(text);
 }
 
-var input = function(input){
+var input = function(){
     return new Promise(function(resolve) {
-        self.onmessage = fuction
+        onmessage = (post) => resolve(post.data.text)
     });
 }
 
@@ -18,8 +21,4 @@ fetch('ConnectFour/c4blob.py').then(response => {
         Sk.importMainWithBody('<stdin>', false, text)
         )
     );
-});
-
-self.addEventListener('input', function(post) {
-    input(post.data.message)
 });
