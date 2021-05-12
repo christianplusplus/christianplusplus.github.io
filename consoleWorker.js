@@ -1,9 +1,3 @@
-self.importScripts('imports/skulpt.min.js')
-self.importScripts('imports/skulpt-stdlib.js')
-
-const EventEmitter = require('events');
-const eventEmitter = new EventEmitter();
-
 var output = function(text) {
     postMessage(text);
 }
