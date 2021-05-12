@@ -26,3 +26,12 @@ function runConsole(){
         );
     });
 }
+
+function startWorker(){
+    if(typeof(Worker) !== "undefined"){
+        new Worker("consoleWorker.js");
+    }
+    else{
+        runConsole();
+    }
+}
