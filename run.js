@@ -1,4 +1,4 @@
-function runBot(){
+function runConsole(){
     var jqconsole = $('#console').jqconsole('', '');
 
     var output = function(text) {
