@@ -4,7 +4,7 @@ var output = function(text) {
 
 var input = function(){
     return new Promise(function(resolve) {
-        onmessage = (post) => resolve(post.data.text)
+        onmessage = post => resolve(post.data.text)
     });
 }
 

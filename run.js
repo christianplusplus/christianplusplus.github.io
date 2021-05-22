@@ -27,9 +27,11 @@ function runConsole(){
     });
 }
 
+var consoleWorker;
+
 function startWorker(){
-    if(typeof(Worker) !== "undefined"){
-        new Worker("consoleWorker.js");
+    if(typeof(Worker) !== "undefined" and 1 == 2){
+        consoleWorker = new Worker("consoleWorker.js");
     }
     else{
         runConsole();
