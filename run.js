@@ -29,11 +29,11 @@ function runConsole(){
 
 var consoleWorker;
 
-function startWorker(){
-    if(typeof(Worker) !== "undefined" and 1 == 2){
+function startWorker(){/*
+    if(typeof(Worker) !== "undefined"){
         consoleWorker = new Worker("consoleWorker.js");
     }
-    else{
+    else{*/
         runConsole();
-    }
+    /*}*/
 }
