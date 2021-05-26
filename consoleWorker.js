@@ -3,6 +3,7 @@ var output = function(text) {
 }
 
 var input = function(){
+    postMessage('input');
     return new Promise(function(resolve) {
         onmessage = post => resolve(post.data.text)
     });
