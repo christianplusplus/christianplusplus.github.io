@@ -18,7 +18,8 @@ console.log('configured')
 
 fetch('ConnectFour/c4blob.py').then(function(response){
     response.text().then(function(text){
-        console.log(text);
-        Sk.importMainWithBody('<stdin>', false, text);
+        Sk.misceval.callAsync('skulpt',
+            () => Sk.importMainWithBody('c4blob', false, text, true)
+        )
     });
 });
