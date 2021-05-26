@@ -1,3 +1,6 @@
+importScripts("imports/skulpt.min.js");
+importScripts("imports/skulpt-stdlib.js");
+
 var output = function(text) {
     postMessage(text);
 }
