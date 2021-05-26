@@ -1,8 +1,5 @@
-var jqconsole = $('#console').jqconsole('', '');
-var consoleWorker;
-
 function runConsole(){
-    
+    var jqconsole = $('#console').jqconsole('', '');
 
     var output = function(text) {
         jqconsole.Write(text, 'jqconsole-output');
@@ -30,8 +27,11 @@ function runConsole(){
     });
 }
 
+var consoleWorker;
+
 function startWorker(){
     if(typeof(Worker) !== "undefined"){
+        var jqconsole = $('#console').jqconsole('', '');
         consoleWorker = new Worker("consoleWorker.js");
         consoleWorker.onmessage = function(post){
             console.log(post.data.text);
