@@ -30,7 +30,7 @@ function runConsole(){
 var consoleWorker;
 
 function startWorker(){
-    if(typeof(Worker) !== "undefined"){
+    if(false/*typeof(Worker) !== "undefined"*/){
         var jqconsole = $('#console').jqconsole('', '');
         consoleWorker = new Worker("consoleWorker.js");
         consoleWorker.onmessage = function(post){
