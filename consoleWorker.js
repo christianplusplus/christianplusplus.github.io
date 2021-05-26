@@ -16,7 +16,7 @@ Sk.configure({output:output, inputfun:input, __future__:Sk.python3});
 
 console.log('configured')
 
-fetch('ConnectFour/c4blob.py').then(fuction(response){
+fetch('ConnectFour/c4blob.py').then(function(response){
     response.text().then(function(text){
         console.log(text);
         Sk.importMainWithBody('<stdin>', false, text);
