@@ -1,43 +1,45 @@
-function runConsole(){
-    var jqconsole = $('#console').jqconsole('', '');
+var jqconsole;
 
-    var output = function(text) {
-        jqconsole.Write(text, 'jqconsole-output');
-    }
+var output = function(text) {
+    jqconsole.Write(text, 'jqconsole-output');
+}
 
-    var input = function(){
-        return new Promise(function(resolve, reject) {
-            jqconsole.Prompt(
-                false,
-                function(text){
-                    resolve(text);
-                }
-            );
-        });
-    }
-
-    Sk.configure({output:output, inputfun:input, __future__:Sk.python3});
-
-    fetch('ConnectFour/c4blob.py').then(response => {
-        response.text().then(text =>
-            Sk.misceval.callAsync('skulpt',
-                () => Sk.importMainWithBody('c4blob', false, text, true)
-            )
+var inputfun = function(){
+    return new Promise(function(resolve, reject) {
+        jqconsole.Prompt(
+            false,
+            function(text){
+                resolve(text);
+            }
         );
     });
 }
 
-var consoleWorker;
-
 function startWorker(){
-    if(false/*typeof(Worker) !== "undefined"*/){
-        var jqconsole = $('#console').jqconsole('', '');
-        consoleWorker = new Worker("consoleWorker.js");
-        consoleWorker.onmessage = function(post){
-            console.log(post.data.text);
+    jqconsole = $('#console').jqconsole('', '');
+    if(typeof(Worker) !== "undefined"){
+        var consoleWorker = new Worker("consoleWorker.js");
+        consoleWorker.onmessage = async function(post){
+            console.log(post.data.header);
+            switch(post.data.header) {
+                case 'output':
+                    output(post.data.text);
+                    break;
+                case 'input':
+                    var text = await inputfun();
+                    consoleWorker.postMessage(text);
+                    break;
+            }
         }
     }
     else{
-        runConsole();
+        Sk.configure({output:output, inputfun:inputfun, __future__:Sk.python3});
+        fetch('ConnectFour/c4blob.py').then(response => {
+            response.text().then(text =>
+                Sk.misceval.callAsync('skulpt',
+                    () => Sk.importMainWithBody('c4blob', false, text, true)
+                )
+            );
+        });
     }
 }
