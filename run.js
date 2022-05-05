@@ -20,7 +20,6 @@ function startWorker(){
     if(typeof(Worker) !== "undefined"){
         var consoleWorker = new Worker("consoleWorker.js");
         consoleWorker.onmessage = async function(post){
-            console.log(post.data.header);
             switch(post.data.header) {
                 case 'output':
                     output(post.data.text);

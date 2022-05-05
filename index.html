@@ -12,15 +12,16 @@ layout: default
     <script src="run.js" type="text/javascript"></script>
 </head>
 <body>
-    <h1 style='text-align:center;'>About Me</h1>
+    <h1 style='text-align:center;clear:both'>About Me</h1>
 
     <p>
-        My name is Christian Wendlandt and I'm a graduate of UW-Oshkosh with a Bachelor of Science.
-        I began my college education as a math major and later shifted my focus to computer science.
-        I'm passionate about both subjects, and decided to double major in Computer Science and Mathematics.
-        I enjoy sharing my passions and have tutored for both majors at the request of faculty.
-        My favorite projects usually include graphics, computer architecture, or assembly language.
-        Contact me if you are looking for an astute, deep-learning, and dedicated, problem-solver.
+        My name is Christian Wendlandt. I enjoy automating my life and breaking games with math.
+        I graduated at UW-Oshkosh with a Bachelor of Science.
+        I started out as a math major and later shifted my focus to computer science; eventually I double majored.
+        I enjoy sharing my passions and have tutored in both areas at the request of faculty.
+        I've spent the last few years in Warehouse Management Systems as a web/app/internal tools developer.
+        My favorite projects usually include graphics, computer architecture, assembly language, and game theory.
+        Contact me if you're looking for an astute, deep-learning, and dedicated problem-solver.
     </p>
     <img src='images/java.png' title='Java'>
     <img src='images/Groovy-logo.svg' title='Groovy' height="50">
@@ -33,10 +34,26 @@ layout: default
     <img src='images/latex.png' title='LaTeX'>
     <img src='images/mysql.png' title='MySQL'>
     
-    <h1 style='text-align:center;'>My Projects</h1>
+    <h1 style='text-align:center;clear:both'>My Projects</h1>
+    
+    <h2>gideonstruedamage.com</h2>
+    <p>
+        <img src='images/gideonstruedamage.png' width='480' hspace='20' style='float:right;'>
+        This is a website that I own and developed which solves an optimization problem in the popular game "Elden Ring".
+        With Vue.js and web workers, it provides a responsive, reactive, single-page, and serverless user interface.
+        The site also shows important game data, which is otherwise difficult to deduce for the player.
+    </p>
+    <p>
+        The game utilizes RPG character progression and other systems which require player choice and resource allocation.
+        This calculator produces optimal character builds based on restrictions provided by the user.
+        This is achieved by culling "hilly" argument combinations, using a steepest ascent algorithm to find maximum value, then appling brute force to the culled "hilly" regions.
+    </p>
+    <a href='https://gideonstruedamage.com/'>View Live</a>
+    <a href='https://github.com/christianplusplus/Elden-Ring-Calculator'>View Code</a>
     
     <h2>aTAM Simulator</h2>
     <p>
+        <img src='images/aTAM.png' width='480' hspace='20' style='float:left;'>
         This is a 3D simulator that is programmed in JavaScript with the WebGL API.
         It should be able to run on any modern browser and computer with sufficient graphical processing power.
     </p>
@@ -46,7 +63,6 @@ layout: default
         Beautiful and intricate structures can be rendered from simple tile sets.
     </p>
     <p>
-        <img src='images/aTAM.png' width='480' hspace='20' style='float:right;'>
         Visualizing constructions can be extremely tedious on a chalkboard and research papers are seldom accompanied by more
         than a few still images to explain how their constructions work.
         Being able to hyperlink directly to a simulator and input tile set would make for a strong academic tool.
@@ -57,22 +73,6 @@ layout: default
     <br>
     <label>(recommended resolution of at least 1125x400)</label>
     <br>
-    
-    <h2>Connect Four Bot</h2>
-    <p>
-        <div id='console'></div>Written in Python, Connect Four Bot is an AI opponent capable of playing Connect Four.
-        It utilizes Alpha-Beta pruning with a custom state analysis algorithm to determine optimal lines of play.
-    </p>
-    <p>
-        This Python window is implemented with Skulpt, a Python-to-JavaScript compiler. Click the button to start the game.
-        Connect Four Bot may take a minute to reply, but performs much faster when running in native Python, which can be freely downloaded.
-        Options like player order and search depth can also be modified in the original program.
-    </p>
-    
-    <button onclick='startWorker();this.disabled=true;'>Run Program</button>
-    <a href='https://github.com/christianplusplus/christianplusplus.github.io/tree/master/ConnectFour'>View Code</a>
-    
-    <br><br><br>
     
     <h2 style='clear:both;'>Apple Hunt</h2>
     <p>
@@ -89,16 +89,32 @@ layout: default
     <a href='https://christianplusplus.github.io/Apple-Hunt/game/the-game.html'>View Live</a>
     <a href='https://github.com/christianplusplus/Apple-Hunt'>View Code</a>
     
-    <h1 style='text-align:center;'>My Research</h1>
+    <h2>Connect Four Bot</h2>
+    <p>
+        <div id='console'></div>Written in Python, Connect Four Bot is an AI opponent capable of playing Connect Four.
+        It utilizes Alpha-Beta pruning with a custom state analysis algorithm to determine optimal lines of play.
+    </p>
+    <p>
+        This Python window is implemented with Skulpt, a Python-to-JavaScript compiler. Click the button to start the game.
+        There is some delay caused by this translation, so I've included a link to the original python script which can be run natively.
+        Options like player order and search depth can also be modified in the original program.
+    </p>
+    
+    <button onclick='startWorker();this.disabled=true;'>Run Program</button>
+    <a href='https://github.com/christianplusplus/christianplusplus.github.io/tree/master/ConnectFour'>View Code</a>
+    
+    <br><br><br>
+    
+    <h1 style='text-align:center;clear:both'>My Research</h1>
     
     <p>
-        Leading up to my final year at UWO, I was approached and offered an assistant researcher role
+        Leading up to my final year at UWO, I was offered an assistant researcher role
         by the Department Chair of the CS department. This was a summertime
         position which fulfilled the internship requirements of my CS degree.
         Two of the department's professors are dedicated to the field of self-assembly,
         which is a mathematics-heavy subfield of computer science. I was considered
-        a good fit for the position because of my math major and quick mastery
-        of recent high-level courses.
+        a good fit for the position because of my math major and mastery
+        of recent high-level coursework.
     </p>
     <p>
         The goal of the research practicum was to prove or disprove the existence
@@ -109,7 +125,7 @@ layout: default
         <li>Learning the subject matter.</li>
         <li>Submitting a research proposal.</li>
         <li>Establishing a thesis.</li>
-        <li>Writing an algorithm that proves the thesis.</li>
+        <li>Writing an algorithm that proved the thesis.</li>
         <li>Integrating my findings with my professors' research paper.</li>
         <li>Reflective writing assignment and presentation.</li>
     </ol>
